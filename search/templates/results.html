@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+    <style>
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            gap: 10px;
+        }
+        .image-grid img {
+            width: 100%; /* Ensure images fit within the grid cell */
+            height: 200px; /* Fixed height */
+            object-fit: cover; /* Crop and cover to maintain aspect ratio */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center; /* Center align content */
+        }
+        .uploaded-image {
+            margin-bottom: 20px;
+        }
+        .uploaded-image img {
+            max-width: 100%; /* Ensure the uploaded image scales properly */
+            height: auto;
+        }
+        .button {
+            display: inline-flex; /* Use flexbox to center content */
+            align-items: center; /* Center text vertically */
+            justify-content: center; /* Center text horizontally */
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 16px; /* Adjust font size if needed */
+            font-weight: bold; /* Make text bold if desired */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search Results</h1>
+        {% if uploaded_image %}
+            <div class="uploaded-image">
+                <h2>Uploaded Image</h2>
+                <img src="{{ uploaded_image.url }}" alt="Uploaded Image">
+            </div>
+        {% endif %}
+        {% if results %}
+            <h2>Similar Images</h2>
+            <div class="image-grid">
+                {% for result in results %}
+                    <div>
+                        <img src="{{ result.url }}" alt="Image">
+                        <p>Score: {{ result.score }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No similar images found.</p>
+        {% endif %}
+        <a href="{% url 'search_images' %}" class="button">Search Again</a>
+    </div>
+</body>
+</html>
