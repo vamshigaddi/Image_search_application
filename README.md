@@ -16,6 +16,9 @@ The Image Search App is a Django-based web application that allows users to uplo
 - **Django**: Web framework used for the backend.
 - **Python**: Programming language.
 - **Bootstrap**: For styling the frontend.
+  
+ # DEMO:
+   https://www.loom.com/share/4da9035a0da344419587e248c919ce57?sid=dca8acf1-42cf-40b9-9bbe-953d5c2fd2a0
 
 ## Installation
 
@@ -30,7 +33,7 @@ The Image Search App is a Django-based web application that allows users to uplo
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/image_search_app.git
+   git clone https://github.com/vamshigaddi/Image_search_application.git
 2. **Create and Activate a Virtual Environment**
    ```bash
     python -m venv myvenv
@@ -53,4 +56,5 @@ The Image Search App is a Django-based web application that allows users to uplo
 - Upload an Image: Navigate to the upload page and select an image to upload.
 - Search for Images: After uploading an image, you can perform a search to find similar images.
 - View Results: Search results will be displayed based on the classification and search functionality.
+
 
